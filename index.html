@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <meta name="description" content="Explora una demo visual de paquetes de juego. Sin pagos, sin entrega de moneda y sin afiliación con los publicadores.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d6f15a'/%3E%3Cpath d='M32 9 49 19v26L32 55 15 45V19z' fill='none' stroke='%231a2030' stroke-width='4'/%3E%3C/svg%3E">
+  <title>nivelito — demo de recargas gamer</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Auth Section -->
+  <div class="auth-section" id="auth-section">
+    <div class="auth-container">
+      <div class="auth-card">
+        <h2 class="auth-title">Inicia sesión</h2>
+        
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Login</button>
+          <button class="auth-tab" data-tab="signup">Regístrate</button>
+        </div>
+
+        <div class="auth-forms">
+          <!-- Login Form -->
+          <form class="auth-form login-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email">Correo electrónico</label>
+              <input type="email" id="login-email" placeholder="tu@correo.com" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Contraseña</label>
+              <input type="password" id="login-password" placeholder="••••••••" required />
+            </div>
+            <div class="form-group">
+              <label for="login-playerid">ID de jugador</label>
+              <input type="text" id="login-playerid" placeholder="Ej. 847201356" />
+            </div>
+            <div class="auth-buttons">
+              <button type="button" class="btn-primary" onclick="signInWithEmail(document.getElementById('login-email').value, document.getElementById('login-password').value, document.getElementById('login-playerid').value)">Entrar</button>
+            </div>
+          </form>
+
+          <!-- Signup Form -->
+          <form class="auth-form signup-form" id="signup-form" hidden>
+            <div class="form-group">
+              <label for="signup-email">Correo electrónico</label>
+              <input type="email" id="signup-email" placeholder="tu@correo.com" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Contraseña</label>
+              <input type="password" id="signup-password" placeholder="••••••••" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-name">Nombre</label>
+              <input type="text" id="signup-name" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="signup-playerid">ID de jugador</label>
+              <input type="text" id="signup-playerid" placeholder="Ej. 847201356" />
+            </div>
+            <div class="auth-buttons">
+              <button type="button" class="btn-primary" onclick="signUpWithEmail(document.getElementById('signup-email').value, document.getElementById('signup-password').value, document.getElementById('signup-playerid').value)">Crear cuenta</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="auth-social">
+          <h3>O continúa con</h3>
+          <div class="social-buttons">
+            <button class="btn-social google" onclick="signInWithGoogle()">Google</button>
+            <button class="btn-social facebook" onclick="signInWithFacebook()">Facebook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Auth Section -->
+
+  <div class="announcement"><b>DEMO VISUAL</b> · sin pagos reales, sin entrega de moneda</div>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="nivelito, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m12 2.7 8.1 4.65v9.3L12 21.3l-8.1-4.65v-9.3L12 2.7Z" stroke="currentColor" stroke-width="1.8"/><path d="m8.4 12 2.3 2.3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-name">nivelito<span>RECARGAS DE JUEGO · DEMO</span></span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Juegos disponibles">
+        <button class="nav-game" type="button" data-game="freefire" aria-current="page">Free Fire</button>
+        <button class="nav-game" type="button" data-game="ml">Mobile Legends</button>
+        <button class="nav-game" type="button" data-game="coc">Clash of Clans</button>
+      </nav>
+      <a class="header-cta" href="#paquetes">Ver paquetes <span aria-hidden="true">↘</span></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú de juegos" aria-expanded="false" aria-controls="main-nav">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="shell hero-grid">
+        <div class="hero-copyblock">
+          <span class="eyebrow">TU PRÓXIMA PARTIDA, A TU MANERA</span>
+          <h1>Más brillo.<br>Más <em>nivel.</em></h1>
+          <p class="hero-copy">Explora paquetes de diamantes para Free Fire en una demo hecha para la comunidad gamer de Latinoamérica. Rápido de mirar. Cero vueltas.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#paquetes">Explorar paquetes <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="quiet-link" href="#como-funciona">¿Cómo funciona? <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Ilustración abstracta de gemas en tonos violeta y coral" role="img">
+          <div class="orbit">
+            <span class="spark one" aria-hidden="true"></span>
+            <span class="spark two" aria-hidden="true"></span>
+            <div class="diamond-stack" aria-hidden="true"><span class="diamond diamond-back"></span><span class="diamond diamond-front"></span></div>
+            <span class="orbit-label top">MODO DEMO: ON</span>
+            <span class="orbit-label bottom">SUBE DE NIVEL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Características de esta demo">
+      <div class="shell trust-inner">
+        <div class="trust-item"><span class="trust-icon" aria-hidden="true">01</span> Sin pagos ni cobros</div>
+        <div class="trust-item"><span class="trust-icon" aria-hidden="true">ID</span> Solo ID de jugador</div>
+        <div class="trust-item"><span class="trust-icon" aria-hidden="true">↗</span> Simulación transparente</div>
+        <div class="trust-item"><span class="trust-icon" aria-hidden="true">◎</span> Pensado para LATAM</div>
+      </div>
+    </div>
+
+    <section class="section" id="paquetes" aria-labelledby="packages-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div><span class="eyebrow">ELIGE TU CARGA</span><h2 id="packages-title">Paquetes para la partida</h2></div>
+          <p>Una vista previa de paquetes populares. Selecciona uno para ver cómo se vería el resumen.</p>
+        </div>
+        <div class="shop-layout">
+          <section class="panel" aria-label="Selector de paquetes">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span class="game-token" id="game-token" aria-hidden="true">FF</span>
+                <span><strong id="active-game-name">Free Fire</strong><small id="package-unit">Diamantes · paquetes demo</small></span>
+              </div>
+              <div class="region-control">
+                <label for="region">Región de muestra</label>
+                <select id="region" aria-label="Región y moneda de muestra">
+                  <option value="MX">México · MXN</option>
+                  <option value="AR">Argentina · ARS</option>
+                  <option value="CO">Colombia · COP</option>
+                  <option value="CL">Chile · CLP</option>
+                  <option value="PE">Perú · PEN</option>
+                </select>
+              </div>
+            </div>
+            <div class="package-grid" id="package-grid" role="group" aria-label="Elige un paquete">
+              <button class="package-card" type="button" data-package="0" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">100 diamantes</span><span class="package-sub">Paquete inicial</span><span class="package-price"></span>
+              </button>
+              <button class="package-card featured" type="button" data-package="1" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">310 diamantes</span><span class="package-sub">Un poco más de juego</span><span class="package-price"></span>
+              </button>
+              <button class="package-card" type="button" data-package="2" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">520 diamantes</span><span class="package-sub">Para ir con todo</span><span class="package-price"></span>
+              </button>
+              <button class="package-card" type="button" data-package="3" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">1.060 diamantes</span><span class="package-sub">Sesión extendida</span><span class="package-price"></span>
+              </button>
+              <button class="package-card" type="button" data-package="4" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">2.180 diamantes</span><span class="package-sub">Para el escuadrón</span><span class="package-price"></span>
+              </button>
+              <button class="package-card" type="button" data-package="5" aria-pressed="false">
+                <span class="coin-mark" aria-hidden="true">◆</span><span class="package-amount">5.600 diamantes</span><span class="package-sub">La carga grande</span><span class="package-price"></span>
+              </button>
+            </div>
+            <p class="flow-note"><b aria-hidden="true">i</b><span>Los nombres, cantidades y precios son ilustrativos. Esta página no procesa pedidos ni representa los precios oficiales de ningún juego.</span></p>
+          </section>
+
+          <form class="panel details-panel" id="purchase-form" novalidate>
+            <div class="step-row">
+              <span class="step-number">01</span>
+              <span class="step-copy"><strong>Arma tu vista previa</strong><small>Elige un paquete e ingresa un ID de jugador de ejemplo. No incluyas datos personales.</small></span>
+            </div>
+            <div class="step-row">
+              <span class="step-number">02</span>
+              <span class="step-copy">
+                <strong id="player-id-title">ID de jugador</strong>
+                <span class="input-wrap"><input id="player-id" name="player-id" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Ej. 847201356" aria-describedby="id-hint id-error"></span>
+                <small class="field-hint" id="id-hint">Solo el ID del juego. De 4 a 20 letras o números.</small>
+              </span>
+            </div>
+            <div class="error-message" id="id-error" role="alert" aria-live="polite"></div>
+            <div class="selected-summary" aria-live="polite"><span>Tu selección</span><strong id="selection-summary">Elige un paquete</strong></div>
+            <button class="primary-button purchase-button" type="submit"><span>Continuar con la demo</span><span aria-hidden="true">→</span></button>
+            <p class="safe-copy">
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 1.8 14.8 4v4.2c0 3.7-2.4 6.4-5.8 8-3.4-1.6-5.8-4.3-5.8-8V4L9 1.8Z" stroke="currentColor" stroke-width="1.4"/><path d="m6.5 8.8 1.7 1.7 3.5-3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No pedimos correo, teléfono, contraseña ni método de pago.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tint section" id="como-funciona">
+      <div class="shell how-grid">
+        <div class="how-intro"><span class="eyebrow">CLARO DESDE EL PRINCIPIO</span><h2>Una demo que no se hace pasar por compra.</h2><p>Prueba el recorrido visual con un ID de juego ficticio. Al final verás una confirmación de simulación, no un pedido ni una recarga real.</p></div>
+        <div class="steps">
+          <div class="how-step"><span class="how-step-num">1</span><span><strong>Escoge un juego y paquete</strong><small>Los controles cambian la vista previa local.</small></span><span class="arrow" aria-hidden="true">↗</span></div>
+          <div class="how-step"><span class="how-step-num">2</span><span><strong>Usa un ID de prueba</strong><small>El dato vive solo en esta página y no se guarda.</small></span><span class="arrow" aria-hidden="true">↗</span></div>
+          <div class="how-step"><span class="how-step-num">3</span><span><strong>Revisa una confirmación demo</strong><small>No hay pago, compra, ni entrega de moneda.</small></span><span class="arrow" aria-hidden="true">✓</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-section" id="juegos" aria-labelledby="games-heading">
+      <div class="shell">
+        <div class="section-heading">
+          <div><span class="eyebrow">CAMBIA DE UNIVERSO</span><h2 id="games-heading">También en el radar</h2></div>
+          <p>La misma experiencia de muestra, con paquetes de ejemplo para otros juegos.</p>
+        </div>
+        <div class="game-tiles">
+          <button class="game-tile active" type="button" data-game="freefire" aria-pressed="true">
+            <span class="game-symbol" aria-hidden="true">FF</span><span><strong>Free Fire</strong><small>Diamantes · juego de acción</small></span><span class="tile-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="game-tile" type="button" data-game="ml" aria-pressed="false">
+            <span class="game-symbol" aria-hidden="true">ML</span><span><strong>Mobile Legends</strong><small>Diamantes · estrategia en equipo</small></span><span class="tile-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="game-tile" type="button" data-game="coc" aria-pressed="false">
+            <span class="game-symbol" aria-hidden="true">CoC</span><span><strong>Clash of Clans</strong><small>Gemas · construye tu aldea</small></span><span class="tile-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="preguntas">
+      <div class="shell faq-layout">
+        <div class="faq-intro"><span class="eyebrow">SIN LETRA CHICA</span><h2>Preguntas<br>rápidas</h2><p>Lo importante, explicado sin rodeos.</p></div>
+        <div class="faq-list">
+          <details><summary>¿Esta demo vende diamantes o gemas?</summary><p>No. Es una experiencia visual independiente para explorar un flujo de selección. No vende, cobra ni entrega moneda de juego.</p></details>
+          <details><summary>¿Tiene relación oficial con los juegos?</summary><p>No. nivelito es una demo independiente y no está afiliada, patrocinada ni respaldada por Garena, Moonton, Supercell o sus marcas.</p></details>
+          <details><summary>¿Qué información debo escribir?</summary><p>Solo un ID de jugador ficticio o de prueba para previsualizar el formulario. No ingreses información personal. El campo no se envía ni se almacena.</p></details>
+          <details><summary>¿La confirmación significa que compré algo?</summary><p>No. El mensaje final solo confirma que completaste la simulación en pantalla. No se crea un pedido y no se realiza ninguna transacción.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell notice-shell">
+      <div class="notice">
+        <div class="notice-row"><span class="notice-mark" aria-hidden="true">!</span><span><strong>Aviso de independencia:</strong> nivelito es una demo visual independiente, no afiliada a los publicadores de los juegos mostrados. Los nombres de juegos pertenecen a sus respectivos titulares. No vendemos ni entregamos diamantes, gemas ni ninguna otra moneda. No hay pagos reales ni pedidos.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 2.7 8.1 4.65v9.3L12 21.3l-8.1-4.65v-9.3L12 2.7Z" stroke="currentColor" stroke-width="1.8"/><path d="m8.4 12 2.3 2.3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>nivelito <span class="footer-demo-label">· demo independiente</span></div>
+      <span class="footer-copy">Una interfaz de muestra. Sin pagos, cuentas ni datos guardados.</span>
+      <a href="#inicio" class="footer-link">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="confirmation-modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+      <div id="review-state">
+        <div class="modal-top"><div><span class="eyebrow">RESUMEN DE PRUEBA</span><h2 id="modal-title">¿Todo listo?</h2></div><button class="close-modal" type="button" data-close-modal aria-label="Cerrar ventana">×</button></div>
+        <p class="modal-lead" id="modal-description">Revisa los datos de esta simulación. No se hará ningún cobro ni pedido.</p>
+        <div class="receipt">
+          <div class="receipt-row"><span>Juego</span><strong id="receipt-game"></strong></div>
+          <div class="receipt-row"><span>Paquete</span><strong id="receipt-package"></strong></div>
+          <div class="receipt-row"><span>ID de jugador</span><strong id="receipt-id"></strong></div>
+          <div class="receipt-row"><span>Región de muestra</span><strong id="receipt-region"></strong></div>
+          <div class="receipt-row receipt-total"><span>Total de muestra</span><strong id="receipt-price"></strong></div>
+        </div>
+        <p class="modal-disclaimer">Esto es solo una confirmación visual de demo. No se procesa una compra y no se entregará moneda de juego.</p>
+        <div class="modal-actions"><button class="secondary-button" type="button" data-close-modal>Volver</button><button class="primary-button modal-primary" type="button" id="confirm-demo">Confirmar demo <span aria-hidden="true">→</span></button></div>
+      </div>
+      <div class="success-state" id="success-state" hidden>
+        <span class="success-mark" aria-hidden="true">✓</span>
+        <span class="success-tag">Simulación completada</span>
+        <h2>¡Listo para la próxima!</h2>
+        <p>La vista previa se completó correctamente.<br><strong>No se realizó una compra ni se entregó moneda.</strong></p>
+        <button class="primary-button modal-primary" type="button" id="finish-demo">Entendido <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
